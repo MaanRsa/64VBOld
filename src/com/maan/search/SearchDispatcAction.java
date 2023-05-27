@@ -1305,7 +1305,13 @@ public class SearchDispatcAction extends DispatchAction {
          		{
          			bankname="HDFC BANK";
          			request.setAttribute("PartToShow","HDFCBankInvalidsResult");
-         		} else if(bankid.equalsIgnoreCase("HSB"))
+         		}else if(bankid.equalsIgnoreCase("KOT"))
+         		{
+         			bankname="KOTAK BANK";
+         			request.setAttribute("PartToShow","KOTBankInvalidsResult");
+         		}
+         		
+         		else if(bankid.equalsIgnoreCase("HSB"))
          		{
          			bankname="HSBC BANK";
          			request.setAttribute("PartToShow","HSBCBankInvalidsResult");

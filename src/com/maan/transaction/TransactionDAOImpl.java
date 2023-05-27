@@ -30,6 +30,8 @@ public class TransactionDAOImpl extends CommonBaseDAOImpl implements Transaction
 			selectQry=getQuery(DBConstants.TRANSACTION_CITI_DETAILS);
 		else if (param.equalsIgnoreCase("HDB"))
 			selectQry=getQuery(DBConstants.TRANSACTION_HDFC_DETAILS);
+		else if (param.equalsIgnoreCase("KOT"))
+			selectQry=getQuery(DBConstants.TRANSACTION_KOTAK_DETAILS);
 		else if (param.equalsIgnoreCase("HSB"))
 			selectQry=getQuery(DBConstants.TRANSACTION_HSBC_DETAILS);
 		else if (param.equalsIgnoreCase("SCB"))
@@ -435,6 +437,8 @@ public class TransactionDAOImpl extends CommonBaseDAOImpl implements Transaction
 			selectQry="select unique to_char(DEPOSIT_DATE,'DD/MM/YYYY')  as rdate,count(*)  as rcount from AXIS_BANK where  BATCHID='"+transId+"' group by DEPOSIT_DATE";
 		else if(param.equalsIgnoreCase("HSB"))
 			selectQry="select unique to_char(DEPOSIT_DATE,'DD/MM/YYYY')  as rdate,count(*)  as rcount from HSBC_BANK where  BATCHID='"+transId+"' group by DEPOSIT_DATE";
+		else if(param.equalsIgnoreCase("KOT"))
+			selectQry="select unique to_char(DEPOSIT_DATE,'DD/MM/YYYY')  as rdate,count(*)  as rcount from KOTAK_BANK where  BATCHID='"+transId+"' group by DEPOSIT_DATE";
 		else
 			selectQry="select unique to_char(deposit_date,'DD/MM/YYYY')  as rdate,count(*)  as rcount from hdfc_bank where  BATCHID='"+transId+"' group by deposit_date";
 		

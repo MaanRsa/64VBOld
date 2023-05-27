@@ -54,6 +54,25 @@ function callpage(val)
         document.transactionform.submit();
 		return false;
 	  }
+	   else if ("KOTAKTransactions"==pts){
+			 
+		   var method;
+			var initIndex,endIndex;	
+			var page;
+			var v = val.href;
+			initIndex = v.indexOf("d-446779-p=");
+			endIndex = v.indexOf("&", initIndex);
+			if(initIndex!=-1)
+			{
+				page = v.substring(initIndex,endIndex+1);
+			}
+			method="kotakTransactions";
+		    document.transactionform.Pagination.value="Y";
+			
+			document.transactionform.action="<%=request.getContextPath() %>/transaction.do?"+page+"method="+method;
+	        document.transactionform.submit();
+			return false;
+		  }
 	  else if ("SCBTransactions"==pts){
 	 
 	   var method;
@@ -859,6 +878,10 @@ function checkAll(object)
 
 </logic:equal>
 
+<logic:equal name="PartToShow" value="KOTAKTransactions" >
+	<jsp:include page="/WEB-INF/jsp/upload/KotakTransaction.jsp"></jsp:include>
+</logic:equal>
+
 
 
 <logic:equal name="PartToShow" value="ReceiptRecords" >
@@ -1057,6 +1080,43 @@ function checkAll(object)
 
 
 <logic:equal name="PartToShow" value="HDFCRecords" >
+
+<table border="0" cellpadding="0" cellspacing="0" width="60%" align="center">
+<tr><BR /><td colspan="2" width="100%" class="tbn" height="20" align="left"> &nbsp;HDFC BANK RECORDS DETAILS</td></tr> 
+ 
+    <tr>
+    <td align="center" colspan="2">
+		&nbsp;
+	</td>
+    
+    </tr>
+      <tr>
+    <td align="center" colspan="2">
+		<display:table name="details" pagesize="10" requestURI="/transaction.do?method=getRecordsCount" class="table" uid="row" id="record">
+		<display:setProperty name="paging.banner.one_item_found" value="" />
+		<display:setProperty name="paging.banner.one_items_found" value="" />
+		<display:setProperty name="paging.banner.all_items_found" value="" />
+		<display:setProperty name="paging.banner.some_items_found" value="" />
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:setProperty name="paging.banner.onepage" value="" />
+	 	
+	 	<display:column style="text-align:center;" sortable="true" title="DEPOSIT DATE" property="recorddates" class="formtxtc" />
+	 	<display:column style="text-align:center;" sortable="true" title="NO. OF RECORDS" property="recordcounts" class="formtxtc" />
+	 	
+		</display:table>
+	</td>
+    
+    </tr>
+    
+    <tr style="height:50px" align="center">
+    <td><html:button property="back" value="Back" onclick="return goback();" styleClass="tbut"/> 
+ 
+	 </td>
+    </tr>
+    
+    </table></logic:equal>
+    
+    <logic:equal name="PartToShow" value="KOTRecords" >
 
 <table border="0" cellpadding="0" cellspacing="0" width="60%" align="center">
 <tr><BR /><td colspan="2" width="100%" class="tbn" height="20" align="left"> &nbsp;HDFC BANK RECORDS DETAILS</td></tr> 

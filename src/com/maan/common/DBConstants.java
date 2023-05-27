@@ -280,6 +280,8 @@ public interface DBConstants {
 
 	public static final String TRANSACTION_HDFC_DETAILS="maan.db.transaction.hdfc.details";
 	
+	public static final String TRANSACTION_KOTAK_DETAILS="maan.db.transaction.kotak.details";
+	
 	public static final String TRANSACTION_HSBC_DETAILS="maan.db.transaction.hsbc.details";
 	
 	public static final String TRANSACTION_SCB_DETAILS="maan.db.transaction.scb.details";

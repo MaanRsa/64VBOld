@@ -557,6 +557,132 @@ public class TransactionDispatchAction extends AbstractCommonBaseDispatchAction
 		return forward;
 	}
 	
+	public ActionForward kotakTransactions(final ActionMapping mapping,final ActionForm form, final HttpServletRequest request,final HttpServletResponse response) throws CommonBaseException 
+	{
+		LogManager.info("Start");
+		ActionForward forward = null;
+		TransactionCB tCB=new TransactionCB();
+		TransactionForm tForm=(TransactionForm)form;
+		tForm.setTransaction("KOT");
+		ActionErrors ae=new ActionErrors();
+		String status=request.getParameter("status")==null?"":request.getParameter("status");
+		boolean submit = false;
+		LogManager.push(request.getParameter("Pagination")+"<=Pagination");	
+		int count=tCB.getProcessCount();
+		tForm.setProcessCount(count);
+		if(count>0&&!status.equalsIgnoreCase("processed"))
+		{
+			
+		ae.add(ActionMessages.GLOBAL_MESSAGE,new ActionMessage("search.error.display", new Object[] {"Please wait another transaction is in process </br>Refresh your browser after some time."}));
+	    saveMessages(request,ae);
+        saveErrors(request,ae);
+		}
+		
+		if(request.getParameter("Pagination")==null )
+		{
+			tCB.updateTransactions();	
+		}
+		if(request.getParameter("Pagination")!=null)
+		{
+		    if(request.getParameter("Pagination").toString().equalsIgnoreCase(""))
+			{
+		    	submit = true;
+			}
+		}		
+		Enumeration en = request.getParameterNames();
+		boolean flag=false;
+	    int j=0;
+		while(en.hasMoreElements())
+		{
+			param_name=en.nextElement().toString();
+			LogManager.push((++j)+"########param_name==>>"+param_name);
+			if(param_name.indexOf("checkbox")!=-1)
+				checkedTransactNos+="'"+param_name.replaceAll("checkbox", "")+"'";
+			/*if(param_name.indexOf("hidden")!=-1)
+				uncheckedTransactNos+="'"+param_name.replaceAll("hidden", "")+"',";*/
+		}
+		/*if(uncheckedTransactNos.length()>0)
+		{
+			uncheckedTransactNos=uncheckedTransactNos.substring(0, uncheckedTransactNos.length()-1);
+			LogManager.push("unchecked params:"+uncheckedTransactNos);
+			flag=true;
+		}
+		if(checkedTransactNos.length()>0)
+		{
+			checkedTransactNos=checkedTransactNos.substring(0, checkedTransactNos.length()-1);
+			LogManager.push("checked params:"+checkedTransactNos);
+			flag=true;
+		}*/
+		
+		checkedTransactNos=checkedTransactNos.replaceAll("''","','");
+		LogManager.push("checked trans nos "+checkedTransactNos);
+		
+		if(checkedTransactNos.length()>0)
+			flag=true;
+		if(flag){
+			tCB.updateSelected(checkedTransactNos,uncheckedTransactNos);
+			checkedTransactNos="";
+			uncheckedTransactNos="";
+		}
+		//end
+		if(submit){
+	    	tCB.updateTransactions();
+		}
+		
+		
+		try
+		{  
+			final List list = tCB.getTransactedDetails(tForm);
+			LogManager.push("List Size: "+list.size());
+			for(int i=0;i<list.size();i++)
+			{
+				TransactionVB tVB=(TransactionVB) list.get(i);
+				String process=tVB.getProcessed();
+				LogManager.push("Process count:"+process);
+			}
+			//changes
+			List processed=new ArrayList();
+			List unProcessed=new ArrayList();
+			for(int i=0;i<list.size();i++)
+			{
+				TransactionVB transVB=(TransactionVB) list.get(i);
+				if(transVB.getProcessed().equals("Y"))
+					processed.add(transVB);
+				else
+					unProcessed.add(transVB);
+			}
+		
+			if(status.equals("processed"))
+			{
+				request.setAttribute("partToShowStatus","Processed");
+				request.setAttribute("Processed", processed);
+				
+				//request.setAttribute("name","processedDetails");
+			}
+			else 
+			{
+				request.setAttribute("partToShowStatus","Unprocessed");
+				request.setAttribute("Unprocessed", unProcessed);
+				
+				//request.setAttribute("name","unProcessedDetails");
+			}
+			
+			request.setAttribute("status",status);			
+		
+			
+			//changes
+			request.setAttribute("details", list);
+            LogManager.push("receiptTransactions Controller  method() - Enter========>"+list.size());			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			LogManager.debug(e);
+		}
+		request.setAttribute("PartToShow","KOTAKTransactions");
+		forward = mapping.findForward("user"); 		
+		return forward;
+	}
+	
 	public ActionForward hsbcTransactions(final ActionMapping mapping,final ActionForm form, final HttpServletRequest request,final HttpServletResponse response) throws CommonBaseException 
 	{
 		LogManager.info("Start");
@@ -753,6 +879,10 @@ public class TransactionDispatchAction extends AbstractCommonBaseDispatchAction
 			{
 				axisTransactions(mapping, form, request, response);
 			}
+			else if(bankId.equalsIgnoreCase("KOT"))
+			{
+				kotakTransactions(mapping, form, request, response);
+			}
 			
 		}catch(Exception e){
 			LogManager.fatal(e);
@@ -870,6 +1000,10 @@ public class TransactionDispatchAction extends AbstractCommonBaseDispatchAction
 			{
 				axisTransactions(mapping, form, request, response);
 			}
+			else if(bankId.equalsIgnoreCase("KOT"))
+			{
+				kotakTransactions(mapping, form, request, response);
+			}
 			
 		}catch(Exception e){
 			LogManager.fatal(e);
@@ -915,6 +1049,12 @@ public class TransactionDispatchAction extends AbstractCommonBaseDispatchAction
 			List list=tCB.getRecords(tForm);
 			request.setAttribute("details", list);
 			request.setAttribute("PartToShow","HSBCRecords");
+		}
+		else if (bankId.equalsIgnoreCase("KOT"))
+		{
+			List list=tCB.getRecords(tForm);
+			request.setAttribute("details", list);
+			request.setAttribute("PartToShow","KOTRecords");
 		}
 		else
 		{
