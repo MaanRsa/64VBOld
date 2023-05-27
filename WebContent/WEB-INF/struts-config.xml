@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+
+	<form-beans>
+		<form-bean name="tmasvalidationform"
+			type="com.maan.admin.TmasValidation.TmasValidationForm" />
+		<form-bean name="userManipulationForm"
+			type="com.maan.admin.usermanipulation.UserManipulationForm" />
+		<form-bean name="branchMasterForm"
+			type="com.maan.admin.branchMaster.branchMasterForm" />
+		<form-bean name="loginForm" type="com.maan.login.LoginForm" />
+		<form-bean name="menuForm" type="com.maan.menu.MenuForm" />
+		<form-bean name="menuAdminForm"
+			type="com.maan.admin.menu.MenuAdminForm" />
+		<form-bean name="errorform"
+			type="com.maan.admin.master.error.ErrorForm" />
+		<form-bean name="uploadFileForm"
+			type="com.maan.excelupload.UploadForm">
+			<form-property name="uploadFile"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		<form-bean name="uploadform"
+			type="com.maan.upload.UploadForm">
+			<form-property name="uploadFile"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		<form-bean name="uploadform2"
+			type="com.maan.upload2.UploadForm">
+			<form-property name="uploadFile"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		<form-bean name="bankForm" type="com.maan.admin.bank.BankForm" />
+		<form-bean name="bankRejectionForm"
+			type="com.maan.admin.bankRejection.BankRejectionForm" />
+		<form-bean name="bankAcctForm"
+			type="com.maan.admin.bankAcct.BankAcctForm" />
+		<form-bean name="bankErrorForm"
+			type="com.maan.admin.bankError.BankErrorForm" />
+		<form-bean name="uploadform3"
+			type="com.maan.upload3.UploadForm">
+			<form-property name="uploadFile"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		<form-bean name="uploadbankfile"
+			type="com.maan.uploadbankfile.UploadForm">
+			<form-property name="uploadFile"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		<form-bean name="processform"
+			type="com.maan.process.ProcessForm" />
+		<form-bean name="authorizeform" type="" />
+		<form-bean name="CommonDispatchForm"
+			type="com.maan.common.use.CommonDispatchForm" />
+		<form-bean name="transactionform"
+			type="com.maan.transaction.TransactionForm" />
+		<form-bean name="searchFormBean"
+			type="com.maan.search.SearchFormBean" />
+		<form-bean name="userSearchFormBean"
+			type="com.maan.user.search.SearchFormBean" />
+		<form-bean name="receiptDetails"
+			type="com.maan.search.ReceiptDetails" />
+		<form-bean name="receiptDetails2"
+			type="com.maan.user.search.ReceiptDetails" />
+		<form-bean name="cashFormBean"
+			type="com.maan.cash.CashFormBean" />
+		<form-bean name="reversalFormBean"
+			type="com.maan.reversal.ReversalFormBean" />
+			<form-bean name="reversalReceiptForm"
+			type="com.maan.uploadReversal.UploadForm" />
+		<form-bean name="reportsForm"
+			type="com.maan.reports.ReportsFormBean" />	
+  </form-beans>
+
+	<global-exceptions>
+		<exception
+			handler="com.maan.common.exception.MotorBaseExceptionHandler"
+			type="com.maan.common.exception.MotorBaseException" key="errors.sql"
+			scope="request" path="error.page" />
+		<exception
+			handler="com.maan.common.exception.MotorBaseExceptionHandler"
+			type="java.lang.Exception" key="errors.sql" scope="request"
+			path="error.page" />
+		<exception
+			handler="com.maan.common.exception.CommonBaseExceptionHandler"
+			type="com.maan.common.exception.CommonBaseException" key="errors.sql"
+			scope="request" path="error.page" />
+		<exception
+			handler="com.maan.common.exception.CommonBaseExceptionHandler"
+			type="java.lang.Exception" key="errors.sql" scope="request"
+			path="error.page" />
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="welcome" path="/welcome.do" redirect="true" />
+		<forward name="sessionError" path="/session/error_messg.jsp"
+			redirect="true" />
+	</global-forwards>
+
+	<action-mappings>
+		<action path="/welcome" type="com.maan.common.WelcomeAction">
+			<forward name="showWelcome" path="page.welcome" />
+		</action>
+
+		<action path="/sessionExpire"
+			type="com.maan.common.SessionExpireAction" scope="session">
+			<forward name="expire" path="page.sessionExpire" />
+		</action>
+
+		<action attribute="loginForm" input="/WEB-INF/jsp/login.jsp"
+			name="loginForm" parameter="method" path="/login"
+			type="com.maan.login.LoginDispatchAction" scope="session">
+			<forward name="user" path="page.welcome" />
+			<forward name="adminWelcome"
+				path="/menu.do?method=adminMenu" />
+			<forward name="status"
+				path="/userManipulation.do?method=initResetPwd" />
+			<forward name="date" path="/WEB-INF/jsp/DateSet.jsp" />
+			<forward name="userLogin"
+				path="/menu.do?method=ShowDistricts" />
+			<forward name="investigateLogin"
+				path="/menu.do?method=ShowDistricts" />
+			<forward name="uploadLogin" path="/menu.do?method=menu" />
+		</action>
+
+		<action attribute="menuForm"
+			input="/WEB-INF/jsp/StateDistrict.jsp" name="menuForm"
+			parameter="method" path="/menu" scope="request"
+			type="com.maan.menu.MenuDispathAction">
+			<forward name="statedistrict" path="page.StateDistrictHome" />
+			<forward name="districtshow"
+				path="/WEB-INF/jsp/District.jsp" />
+			<forward name="investuser" path="/menu.do?method=menu" />
+			<forward name="user" path="page.process" />
+			<forward name="first" path="page.first" />
+			<forward name="adminMenu" path="admin.firstPage" />
+		</action>
+
+		<action attribute="menuAdminForm"
+			input="/WEB-INF/jsp/admin/menuAdmin.jsp" name="menuAdminForm"
+			path="/menuAdmin" scope="request" parameter="method"
+			type="com.maan.admin.menu.MenuAdminDispathAction">
+			<forward name="adminMenu" path="admin.page.menuAdmin" />
+			<forward name="status" path="admin.page.adminStatus" />
+		</action>
+
+		<action attribute="userManipulationForm"
+			input="/WEB-INF/jsp/admin/userManipulation.jsp"
+			name="userManipulationForm" parameter="method"
+			path="/userManipulation" scope="request"
+			type="com.maan.admin.usermanipulation.UserManipulationDispatchAction">
+			<forward name="status" path="admin.page.adminStatus" />
+			<forward name="userManipulation"
+				path="admin.page.userManipulation" />
+			<forward name="userLogin" path="page.welcome" />
+		</action>
+
+
+		<action attribute="transactionform"
+			input="/WEB-INF/jsp/upload/TransactionDetail.jsp"
+			name="transactionform" parameter="method" path="/transaction"
+			type="com.maan.transaction.TransactionDispatchAction">
+			<forward name="user" path="page.transaction" />
+			<forward name="realised"
+				path="/SearchDispatcAction.do?method=realisedTransaction" />
+			<forward name="duplicates"
+				path="/SearchDispatcAction.do?method=getDuplicates" />
+			<forward name="invalids"
+				path="/SearchDispatcAction.do?method=getInvalids" />
+			<forward name="reversals"
+				path="/SearchDispatcAction.do?method=getReversals" />
+			<forward name="nocheques"
+				path="/SearchDispatcAction.do?method=getNocheques" />
+			<forward name="payments"
+				path="/SearchDispatcAction.do?method=getReceiptPayments" />
+			<forward name="notRealised"
+				path="/SearchDispatcAction.do?method=notRealizedTransactionList" />
+			<forward name="transdetail" path="page.pop.transdetail" />
+		</action>
+		<action path="/bank" parameter="method" name="bankForm"
+			type="com.maan.admin.bank.BankDispatchAction">
+			<forward name="addBank" path="admin.bank" />
+		</action>
+		<action path="/bankRejection" parameter="method"
+			name="bankRejectionForm"
+			type="com.maan.admin.bankRejection.BankRejectionDispatchAction">
+			<forward name="bankRejection" path="admin.bankRejection" />
+		</action>
+
+		<action path="/branchMaster" parameter="method"
+			name="branchMasterForm"
+			type="com.maan.admin.branchMaster.branchMasterDispatchAction">
+			<forward name="branchMaster" path="admin.branchMast" />
+		</action>
+
+		<action path="/validationTmas" parameter="method"
+			name="tmasvalidationform" 
+			type="com.maan.admin.TmasValidation.TmasValidationDispatchAction">
+			<forward name="validationTmas" path="admin.validationTmas" />
+		</action>
+
+		<action path="/bankAcct" parameter="method" name="bankAcctForm"
+			type="com.maan.admin.bankAcct.BankAcctDispatchAction">
+			<forward name="bankAcct" path="admin.bankAcct" />
+		</action>
+		<action path="/bankError" parameter="method"
+			name="bankErrorForm"
+			type="com.maan.admin.bankError.BankErrorDispatchAction">
+			<forward name="bankError" path="admin.bankError" />
+		</action>
+		<action path="/error"
+			type="com.maan.admin.master.error.ErrorDispatchAction"
+			name="errorform" parameter="method"
+			input="/WEB-INF/jsp/ErrorDetails.jsp" validate="true">
+			<forward name="EditOrViewErrorDetails"
+				path="page.admin.error" />
+		</action>
+
+		<action attribute="uploadform"
+			input="/WEB-INF/jsp/upload/Upload.jsp" name="uploadform"
+			parameter="method" path="/upload"
+			type="com.maan.upload.UploadDispatchAction">
+			<forward name="uploaduser" path="page.upload" />
+			<forward name="transDetails"
+				path="/upload.do?method=transactionDetails" />
+			<forward name="uncheckforward"
+				path="/upload.do?method=showstatusDetailsDatas" />
+		</action>
+		<action attribute="uploadform3"
+			input="/WEB-INF/jsp/upload/Upload3.jsp" name="uploadform3"
+			parameter="method" path="/upload3"
+			type="com.maan.upload3.UploadDispatchAction">
+			<forward name="uploaduser" path="page.upload3" />
+			<forward name="transDetails"
+				path="/upload3.do?method=transactionDetails" />
+			<forward name="uncheckforward"
+				path="/upload3.do?method=showstatusDetailsDatas" />
+		</action>
+
+		<action attribute="uploadform2"
+			input="/WEB-INF/jsp/upload/Upload2.jsp" name="uploadform2"
+			parameter="method" path="/upload2"
+			type="com.maan.upload2.UploadDispatchAction" scope="request">
+			<forward name="uploaduser" path="page.upload2" />
+			<forward name="transDetails"
+				path="/upload2.do?method=transactionDetails" />
+			<forward name="uncheckforward"
+				path="/upload2.do?method=showstatusDetailsDatas" />
+		</action>
+
+		<action attribute="authorizeform"
+			input="/WEB-INF/jsp/UserHomePage.jsp" name="authorizeform"
+			parameter="method" path="/authorize" scope="request" type="">
+			<forward name="user" path="page.authorize" />
+		</action>
+
+		<action attribute="searchFormBean" path="/SearchDispatcAction"
+			name="searchFormBean" input="/WEB-INF/jsp/search/Search.jsp"
+			type="com.maan.search.SearchDispatcAction" parameter="method"
+			scope="request">
+			<forward name="searchpage" path="page.searchview" />
+			<forward name="matched"
+				path="/SearchDispatcAction.do?method=matchedRecords" />
+			<forward name="receiptdetail"
+				path="/ReceiptDetails.do?method=goreceiptdetail" />
+			<forward name="matchedresult"
+				path="/SearchDispatcAction.do?method=matchedResult" />
+
+		</action>
+
+		<action attribute="userSearchFormBean"
+			path="/UserSearchDispatcAction" name="userSearchFormBean"
+			input="/WEB-INF/jsp/search/UserSearch.jsp"
+			type="com.maan.user.search.SearchDispatcAction" parameter="method"
+			scope="request">
+			<forward name="user" path="page.transaction" />
+			<forward name="receiptdetail2"
+				path="/ReceiptDetails2.do?method=goreceiptdetail" />
+			<forward name="searchpage" path="page.usersearchview" />
+			<forward name="policysearchpage" path="page.policysearchview" />
+
+		</action>
+		<action attribute="receiptDetails2" path="/ReceiptDetails2"
+			input="/ReceiptDetails2.jsp" name="receiptDetails2"
+			type="com.maan.user.search.SearchDispatcAction" parameter="method">
+			<forward name="receiptdetail2" path="page.receiptdetail2" />
+		</action>
+		<action attribute="receiptDetails" path="/ReceiptDetails"
+			input="/ReceiptDetails.jsp" name="receiptDetails"
+			type="com.maan.search.SearchDispatcAction" parameter="method">
+			<forward name="receiptdetail" path="page.receiptdetail" />
+			<forward name="cashTransaction" path="/Cash.do?method=gomatchdetail" />
+		</action>
+		<action name="cashFormBean" attribute="cashFormBean"
+			path="/Cash" parameter="method"
+			type="com.maan.cash.CashDispatchAction">
+			<forward name="cashdetail" path="page.cashdetail" />
+			<forward name="bankdetail"
+				path="/Cash.do?method=submitSearch" />
+			<forward name="matchdetail" path="page.pop.matchdetail" />
+		</action>
+
+		<action attribute="uploadFileForm" name="uploadFileForm"
+			input="/WEB-INF/jsp/upload/fileUpload.jsp" parameter="method"
+			path="/fileUpload" scope="request"
+			type="com.maan.excelupload.uploadDispatchAction">
+			<forward name="main" path="page.upload.main" />
+			<forward name="receipt" path="page.upload.search" />
+		</action>
+		<action name="reversalFormBean" attribute="reversalFormBean"
+			path="/reversal" parameter="method"
+			type="com.maan.reversal.ReversalDispatchAction">
+			<forward name="reversaldetail" path="page.reversaldetail" />
+		</action>
+		<action attribute="reversalReceiptForm" name="reversalReceiptForm"
+			input="/WEB-INF/jsp/upload/ReversalReceipt.jsp" 
+			parameter="method" path="/reversalReceipt"
+			type="com.maan.uploadReversal.UploadDispatchAction">
+			<forward name="uploaduser" path="page.reversalReceipt" />
+			<forward name="transDetails"
+				path="/reversalReceipt.do?method=transactionDetails" />
+		</action>
+		<action name="reportsForm"
+			input="/WEB-INF/jsp/reports/reports.jsp" 
+			parameter="method" path="/reportsAction"
+			type="com.maan.reports.ReportsDispatchAction">
+			<forward name="reports" path="page.reports" />
+			</action>
+	</action-mappings>
+
+	<controller>
+		<set-property property="processorClass"
+			value="com.maan.common.MyRequestProcessor" />
+	</controller>
+
+	<message-resources parameter="com.maan.struts.ApplicationResources" />
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-parser-validate"
+			value="false" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,122 @@
+.table {
+	border: 1px solid white;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead tr { /*background-color: #3636c7;*/
+	
+}
+
+th a,th a:visited {
+	height: 30px;
+	text-align: center;
+	color: #FFFFFF;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th a:hover {
+	height: 30px;
+	text-align: center;
+	background-color: #454545;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th.sortable a {
+	height: 30px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #0B4B92;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th.sorted {
+	height: 30px;
+	text-align: center;
+	background-color: #C0C0C0;
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	color: #3636c7;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th.sorted a,th.sortable a {
+	height: 30px;
+	text-align: center;
+	background-position: right;
+	display: block;
+	width: 100%;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th.order1 a {
+	height: 30px;
+	text-align: center;
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	color: #3636c7;
+	background-image: url(../images/tab_back1.gif);
+}
+
+th.order2 a {
+	height: 30px;
+	text-align: center;
+	FONT-FAMILY: lucida, verdana, helvetica, arial, sans-serif;
+	font-size: 11px;
+	color: #3636c7;
+	background-image: url(../images/tab_back1.gif);
+}
+
+
+tr.odd {	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	/*background-color: #F7F7F7;*/
+	width: 100%;
+}
+
+tr.tableRowEven,tr.even {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	/*background-color: #FEFDF9;*/
+	width: 100%;
+}
+
+tr.odd td {
+	border: 3px solid white;
+	background-color: #F7F7F7;
+	padding-left: 5px;
+	font-weight: normal;
+}
+
+tr.even td {
+	border: 3px solid white;
+	background-color: #FEFDF9;
+	padding-left: 5px;
+	font-weight: normal;
+}
+
+tr.suminsured td{
+	border: 3px solid white;
+	background-color: #F5A9A9;
+	padding-left: 5px;
+	font-weight: normal;
+}
+
+tr.package td{
+	border: 3px solid white;
+	background-color: #CCFFCC;
+	padding-left: 5px;
+	font-weight: normal;
+}
+
+.pagelinks {
+	FONT-FAMILY: verdana;
+	font-size: 11px;
+	text-align: right !important;	
+}

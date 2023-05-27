@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+
+	<definition name="base.definition"
+		path="/WEB-INF/include/siteLayout.jsp">
+		<put name="title" value="64VB" />
+		<put name="header" value="/WEB-INF/include/header.jsp" />
+		<put name="footer" value="/WEB-INF/include/footer.jsp" />
+		<put name="menu" value="/WEB-INF/include/menu.jsp" />
+	</definition>	
+	
+	<definition name="base.popup.definition"
+		path="/WEB-INF/include/popupPageLayout.jsp">
+		<put name="title" value="64VB" />
+		<put name="header" value="/WEB-INF/include/header.jsp" />
+		<put name="footer" value="/WEB-INF/include/footer.jsp" />
+	</definition>
+	
+	<definition name="admin.base.definition"
+		path="/WEB-INF/include/adminLayout.jsp">
+		<put name="title" value="64VB Admin Page" />
+		<put name="leftMenu" value="/WEB-INF/include/adminLeftMenu.jsp" />
+		<put name="header" value="/WEB-INF/include/header.jsp" />
+		<put name="footer" value="/WEB-INF/include/footer.jsp" />
+		<put name="menu" value="/WEB-INF/include/menu.jsp" />
+	</definition>
+
+	<definition name="first.page.definition"
+		path="/WEB-INF/include/firstPageLayout.jsp">
+		<put name="title" value="64VB Login" />
+		<put name="header" value="/WEB-INF/include/homeHeader.jsp" />
+		<put name="footer" value="/WEB-INF/include/homeFooter.jsp" />
+	</definition>
+	<!-- Tiles Definition of welcome page -->
+	
+	<definition name="admin.first" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/state/addNewState.jsp"  />
+	</definition>
+
+	<definition name="page.welcome" extends="first.page.definition">
+		<put name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>	
+	
+	<definition name="page.home" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/UserHomePage.jsp" />
+	</definition>	
+
+	<definition name="page.process" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/process/ProcessDetails.jsp" />
+	</definition>	
+
+	<definition name="page.authorize" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/UserHomePage.jsp" />
+	</definition>	
+
+	<definition name="page.upload" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/Upload.jsp" />
+	</definition>
+	
+	<definition name="page.upload2" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/Upload2.jsp" />
+	</definition>
+	
+	<definition name="page.upload3" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/Upload3.jsp" />
+	</definition>
+	
+	<definition name="page.transaction" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/TransactionDetail.jsp" />
+	</definition>
+	
+	<definition name="page.searchview" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/search/Search.jsp" />
+	</definition>
+	
+	<definition name="page.usersearchview" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/search/UserSearch.jsp" />
+	</definition>
+	<definition name="page.policysearchview" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/search/PolicySearch.jsp" />
+	</definition>
+		
+	<definition name="page.uploadbankfile" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/BankFileUpload.jsp" />
+	</definition>
+	<definition name="admin.bank" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/addNewBank.jsp"  />
+	</definition>
+	
+	<definition name="admin.branchMast" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/addNewBranchMaster.jsp"  />
+	</definition>
+	
+	<definition name="admin.bankAcct" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/addNewBankAcct.jsp"  />
+	</definition>
+	<definition name="admin.bankRejection" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/addNewBankRejection.jsp"  />
+	</definition>
+	
+	<definition name="admin.validationTmas" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/TmasValidation.jsp" />
+	</definition>
+	
+	<definition name="admin.page.userManipulation" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/admin/userManipulation.jsp" />
+	</definition>
+	
+	<definition name="admin.bankError" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/bank/addNewBankError.jsp"  />
+	</definition>
+	
+	
+	<definition name="page.sessionExpire" extends="first.page.definition">
+		<put name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+
+	<definition name="page.first" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/firstPage.jsp" />
+	</definition>
+	
+	<definition name="page.receiptdetail" extends="base.popup.definition">
+		<put name="body" value="/ReceiptDetails.jsp" />
+	</definition>
+	
+	<definition name="page.receiptdetail2" extends="base.popup.definition">
+		<put name="body" value="/ReceiptDetails2.jsp" />
+	</definition>
+	
+	<definition name="error.page" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/error.jsp" />
+	</definition>
+
+	<definition name="admin.page.menuAdmin" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/admin/menuAdmin.jsp" />
+	</definition>
+	
+	<definition name="admin.page.adminStatus" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/admin/adminStatus.jsp" />
+	</definition>	
+	
+	<definition name="admin.firstPage" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/admin/adminfirstPage.jsp" />
+	</definition>
+	<definition name="page.upload.main" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/fileUpload.jsp" />
+	</definition>
+	<definition name="page.reversaldetail" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/search/ReversalSearch.jsp" />
+	</definition>
+	
+	
+	<definition name="page.admin.error" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/ErrorDetails.jsp" />
+	</definition>
+	<definition name="page.pop.matchdetail" extends="base.popup.definition">
+		<put name="body" value="/MatchDetails.jsp" />
+	</definition>
+	<definition name="page.pop.transdetail" extends="base.popup.definition">
+		<put name="body" value="/PieChartDetails.jsp" />
+	</definition>
+		
+	<definition name="page.cashdetail" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/search/CashTransaction.jsp" />
+	</definition>
+	
+	<definition name="page.reversalReceipt" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/ReversalReceipt.jsp" />
+	</definition>
+	<definition name="page.reports" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/reports/reports.jsp" />
+	</definition>
+	
+	<definition name="page.upload.search" extends="base.definition">
+		<put name="body" value="/WEB-INF/jsp/upload/ReceiptUpdate.jsp" />
+	</definition>
+</tiles-definitions>
