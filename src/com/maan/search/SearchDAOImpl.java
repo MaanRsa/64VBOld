@@ -3434,7 +3434,6 @@ public class SearchDAOImpl extends CommonBaseDAOImpl implements SearchDAO {
 						
 			  }
 			  
-			  
 			  else if(bankid.equalsIgnoreCase("HDB")){
 				  list = this.mytemplate.query(query, new RowMapper() {
 					  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
@@ -3473,6 +3472,83 @@ public class SearchDAOImpl extends CommonBaseDAOImpl implements SearchDAO {
 						  }
 					});
 				   }
+		  		
+			  else if(bankid.equalsIgnoreCase("KOT")){
+				  list = this.mytemplate.query(query, new RowMapper() {
+					  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+				      InvalidVB sVB = new InvalidVB();
+				      sVB.setK_clcode1(rset.getString("CLCODE1"));
+				      sVB.setK_customerno(rset.getString("CUSTOMER_NO"));
+				      sVB.setK_clientname(rset.getString("CLIENT_NAME"));
+				      sVB.setK_crdr1(rset.getString("CR_DR1"));
+				      sVB.setK_valuedate1(rset.getString("VALUE_DATE1"));
+				      sVB.setK_locationname(rset.getString("LOCATION_NAME"));
+				      sVB.setK_pickuploccode(rset.getString("PICKUP_LOC_CODE"));
+				      sVB.setK_pickupdate(rset.getString("PICKUP_DATE"));
+				      sVB.setK_pickuploc(rset.getString("PICK_UP_LOC"));
+				      sVB.setK_depositdate(rset.getString("DEPOSIT_DATE"));
+				      sVB.setK_depositslipno(rset.getString("DEPOSIT_SLIP_NO"));
+				      sVB.setK_totalnstrument(rset.getString("TOTAL_INSTRUMENT"));
+				      sVB.setK_totalamount(rset.getString("TOTAL_AMOUNT"));
+				      sVB.setK_instrumentno(rset.getString("INSTRUMENT_NO"));
+				      sVB.setK_instrumentamt(rset.getString("INSTRUMENT_AMT"));
+				      sVB.setK_instrumentdate(rset.getString("INSTRUMENT_DATE"));
+				      sVB.setK_draweebank(rset.getString("DRAWEE_BANK"));
+				      sVB.setK_draweebranch(rset.getString("DRAWEE_BRANCH"));
+				      sVB.setK_debitamnt1(rset.getString("DEBIT_AMNT1"));
+				      sVB.setK_creditamnt1(rset.getString("CREDIT_AMNT1"));
+				      sVB.setK_netamnt1(rset.getString("NETAMNT1"));
+				      sVB.setK_debtoracctno1(rset.getString("DEBTOR_ACCT_NO1"));
+				      sVB.setK_drawername(rset.getString("DRAWER_NAME"));
+				      sVB.setK_remarks(rset.getString("REMARKS"));
+				      sVB.setK_productcode(rset.getString("PRODUCT_CODE"));
+				      sVB.setK_reason(rset.getString("REASON"));
+				      sVB.setK_pickuppointcode(rset.getString("PICKUP_POINT_CODE"));
+				      sVB.setK_pickuppointdesp(rset.getString("PICKUP_POINT_DESP"));
+				      sVB.setK_dealerref(rset.getString("DEALER_REF"));
+				      sVB.setK_clientarrangement(rset.getString("CLIENT_ARRANGEMENT"));
+				      sVB.setK_enrichmentvalue1(rset.getString("ENRICHMENT_VALUE1"));
+				      sVB.setK_enrichmentvalue2(rset.getString("ENRICHMENT_VALUE2"));
+				      sVB.setK_enrichmentvalue3(rset.getString("ENRICHMENT_VALUE3"));
+				      sVB.setK_enrichmentvalue4(rset.getString("ENRICHMENT_VALUE4"));
+				      sVB.setK_enrichmentvalue5(rset.getString("ENRICHMENT_VALUE5"));
+				      sVB.setK_enrichmentvalue6(rset.getString("ENRICHMENT_VALUE6"));
+				      sVB.setK_enrichmentvalue7(rset.getString("ENRICHMENT_VALUE7"));
+				      sVB.setK_enrichmentvalue8(rset.getString("ENRICHMENT_VALUE8"));
+				      sVB.setK_enrichmentvalue9(rset.getString("ENRICHMENT_VALUE9"));
+				      sVB.setK_enrichmentvalue10(rset.getString("ENRICHMENT_VALUE10"));
+				      sVB.setK_enrichmentvalue11(rset.getString("ENRICHMENT_VALUE11"));
+				      sVB.setK_enrichmentvalue12(rset.getString("ENRICHMENT_VALUE12"));
+				      sVB.setK_enrichmentvalue13(rset.getString("ENRICHMENT_VALUE13"));
+				      sVB.setK_enrichmentvalue14(rset.getString("ENRICHMENT_VALUE14"));
+				      sVB.setK_enrichmentvalue15(rset.getString("ENRICHMENT_VALUE15"));
+				      sVB.setK_handoffevent(rset.getString("HANDOFF_EVENT"));
+				      sVB.setK_transactionjournalnmbr(rset.getString("TRANSACTION_JOURNAL_NMBR"));
+				      sVB.setK_depositremarks(rset.getString("DEPOSIT_REMARKS"));
+				      sVB.setK_entrydate(rset.getString("ENTRY_DATE"));
+				      sVB.setK_validatestatus(rset.getString("VALIDATE_STATUS"));
+				      sVB.setK_active(rset.getString("ACTIVE"));
+				      sVB.setK_batchid(rset.getString("BATCHID"));
+				      sVB.setK_correctchqamt(rset.getString("CORRECT_CHQ_AMT"));
+				      sVB.setK_returnreason(rset.getString("RETURN_REASON"));
+				      sVB.setK_instrumentamount(rset.getString("INSTRUMENT_AMOUNT"));
+				      sVB.setK_noofinstruments(rset.getString("NO_OF_INSTRUMENTS"));
+				      sVB.setK_depositamount(rset.getString("DEPOSIT_AMOUNT"));
+				      sVB.setK_pickuppoint(rset.getString("PICKUP_POINT"));
+				      sVB.setK_pickuplocation(rset.getString("PICKUP_LOCATION"));
+				      sVB.setK_debitcredit(rset.getString("DEBIT_CREDIT"));
+				      sVB.setK_txnjournalno(rset.getString("TXN_JOURNAL_NO"));
+				      sVB.setK_month(rset.getString("MONTH"));
+				      sVB.setK_postdt(rset.getString("POST_DT"));
+				      sVB.setK_drcr(rset.getString("DR_CR"));
+				      sVB.setK_entryid(rset.getString("ENTRY_ID"));
+				      return sVB;
+					 
+						  }
+					});
+				   }
+		  
+		  
 			  else if(bankid.equalsIgnoreCase("AXB")){
 				  list = this.mytemplate.query(query, new RowMapper() {
 				  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
@@ -4025,7 +4101,150 @@ public class SearchDAOImpl extends CommonBaseDAOImpl implements SearchDAO {
 				  return sVB;
 					  }
 				});
-			   } else if(bankid.equalsIgnoreCase("HSB")){
+			   }else if(bankid.equalsIgnoreCase("KOT")){
+					  list = this.mytemplate.query(query, new RowMapper() {
+						  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+					      InvalidVB sVB = new InvalidVB();
+					      sVB.setK_clcode1(rset.getString("CLCODE1"));
+					      sVB.setK_customerno(rset.getString("CUSTOMER_NO"));
+					      sVB.setK_clientname(rset.getString("CLIENT_NAME"));
+					      sVB.setK_crdr1(rset.getString("CR_DR1"));
+					      sVB.setK_valuedate1(rset.getString("VALUE_DATE1"));
+					      sVB.setK_locationname(rset.getString("LOCATION_NAME"));
+					      sVB.setK_pickuploccode(rset.getString("PICKUP_LOC_CODE"));
+					      sVB.setK_pickupdate(rset.getString("PICKUP_DATE"));
+					      sVB.setK_pickuploc(rset.getString("PICK_UP_LOC"));
+					      sVB.setK_depositdate(rset.getString("DEPOSIT_DATE"));
+					      sVB.setK_depositslipno(rset.getString("DEPOSIT_SLIP_NO"));
+					      sVB.setK_totalnstrument(rset.getString("TOTAL_INSTRUMENT"));
+					      sVB.setK_totalamount(rset.getString("TOTAL_AMOUNT"));
+					      sVB.setK_instrumentno(rset.getString("INSTRUMENT_NO"));
+					      sVB.setK_instrumentamt(rset.getString("INSTRUMENT_AMT"));
+					      sVB.setK_instrumentdate(rset.getString("INSTRUMENT_DATE"));
+					      sVB.setK_draweebank(rset.getString("DRAWEE_BANK"));
+					      sVB.setK_draweebranch(rset.getString("DRAWEE_BRANCH"));
+					      sVB.setK_debitamnt1(rset.getString("DEBIT_AMNT1"));
+					      sVB.setK_creditamnt1(rset.getString("CREDIT_AMNT1"));
+					      sVB.setK_netamnt1(rset.getString("NETAMNT1"));
+					      sVB.setK_debtoracctno1(rset.getString("DEBTOR_ACCT_NO1"));
+					      sVB.setK_drawername(rset.getString("DRAWER_NAME"));
+					      sVB.setK_remarks(rset.getString("REMARKS"));
+					      sVB.setK_productcode(rset.getString("PRODUCT_CODE"));
+					      sVB.setK_reason(rset.getString("REASON"));
+					      sVB.setK_pickuppointcode(rset.getString("PICKUP_POINT_CODE"));
+					      sVB.setK_pickuppointdesp(rset.getString("PICKUP_POINT_DESP"));
+					      sVB.setK_dealerref(rset.getString("DEALER_REF"));
+					      sVB.setK_clientarrangement(rset.getString("CLIENT_ARRANGEMENT"));
+					      sVB.setK_enrichmentvalue1(rset.getString("ENRICHMENT_VALUE1"));
+					      sVB.setK_enrichmentvalue2(rset.getString("ENRICHMENT_VALUE2"));
+					      sVB.setK_enrichmentvalue3(rset.getString("ENRICHMENT_VALUE3"));
+					      sVB.setK_enrichmentvalue4(rset.getString("ENRICHMENT_VALUE4"));
+					      sVB.setK_enrichmentvalue5(rset.getString("ENRICHMENT_VALUE5"));
+					      sVB.setK_enrichmentvalue6(rset.getString("ENRICHMENT_VALUE6"));
+					      sVB.setK_enrichmentvalue7(rset.getString("ENRICHMENT_VALUE7"));
+					      sVB.setK_enrichmentvalue8(rset.getString("ENRICHMENT_VALUE8"));
+					      sVB.setK_enrichmentvalue9(rset.getString("ENRICHMENT_VALUE9"));
+					      sVB.setK_enrichmentvalue10(rset.getString("ENRICHMENT_VALUE10"));
+					      sVB.setK_enrichmentvalue11(rset.getString("ENRICHMENT_VALUE11"));
+					      sVB.setK_enrichmentvalue12(rset.getString("ENRICHMENT_VALUE12"));
+					      sVB.setK_enrichmentvalue13(rset.getString("ENRICHMENT_VALUE13"));
+					      sVB.setK_enrichmentvalue14(rset.getString("ENRICHMENT_VALUE14"));
+					      sVB.setK_enrichmentvalue15(rset.getString("ENRICHMENT_VALUE15"));
+					      sVB.setK_handoffevent(rset.getString("HANDOFF_EVENT"));
+					      sVB.setK_transactionjournalnmbr(rset.getString("TRANSACTION_JOURNAL_NMBR"));
+					      sVB.setK_depositremarks(rset.getString("DEPOSIT_REMARKS"));
+					      sVB.setK_entrydate(rset.getString("ENTRY_DATE"));
+					      sVB.setK_validatestatus(rset.getString("VALIDATE_STATUS"));
+					      sVB.setK_active(rset.getString("ACTIVE"));
+					      sVB.setK_batchid(rset.getString("BATCHID"));
+					      sVB.setK_correctchqamt(rset.getString("CORRECT_CHQ_AMT"));
+					      sVB.setK_returnreason(rset.getString("RETURN_REASON"));
+					      sVB.setK_instrumentamount(rset.getString("INSTRUMENT_AMOUNT"));
+					      sVB.setK_noofinstruments(rset.getString("NO_OF_INSTRUMENTS"));
+					      sVB.setK_depositamount(rset.getString("DEPOSIT_AMOUNT"));
+					      sVB.setK_pickuppoint(rset.getString("PICKUP_POINT"));
+					      sVB.setK_pickuplocation(rset.getString("PICKUP_LOCATION"));
+					      sVB.setK_debitcredit(rset.getString("DEBIT_CREDIT"));
+					      sVB.setK_txnjournalno(rset.getString("TXN_JOURNAL_NO"));
+					      sVB.setK_month(rset.getString("MONTH"));
+					      sVB.setK_postdt(rset.getString("POST_DT"));
+					      sVB.setK_drcr(rset.getString("DR_CR"));
+					      sVB.setK_entryid(rset.getString("ENTRY_ID"));
+						  
+						  String reqVal="";
+							String val[]=rset.getString("STATUS").split(",");
+						        
+							StringBuffer reasons=new StringBuffer();
+						    
+							String name="";
+							String reason="";
+							LogManager.push("val[0]"+val[0]);
+							int k=0;
+							if(val.length>1)
+							k=1;
+							for(int j=k;j<val.length;j++)
+							{
+							reqVal=val[j];
+							LogManager.push(reqVal+"<--reqVAl");
+							String value[]= new String [2];
+							StringTokenizer st = new StringTokenizer(reqVal,"*");
+						   int i=0;
+							while (st.hasMoreTokens()) {
+						    	 value[i]=st.nextToken().trim();
+						         i++;
+						     }
+							LogManager.push("value[0]"+value[0]);
+							LogManager.push("value[1]"+value[1]);
+							String query1="SELECT EXCEL_HEADER_NAME FROM TMAS_VALIDATION WHERE VALID_ID="+value[0];
+							LogManager.push("RECEIPT POPUP:"+query1);
+							
+							name=Runner.singleSelection(query1);
+							
+							if(value[1].equalsIgnoreCase("D"))
+							{
+								reason = "Invalid Date Format";
+							}
+							else if (value[1].equalsIgnoreCase("M"))
+							{
+								reason = "Not Exists";
+							}
+							else if (value[1].equalsIgnoreCase("R"))
+							{
+								reason = "Not Exists in Master";
+							}
+							else if (value[1].equalsIgnoreCase("NU"))
+							{
+								reason = "Invalid Number";
+							}
+							else if (value[1].equalsIgnoreCase("DEP"))
+							{
+								reason = "Not Exists";
+							}
+							else if (value[1].trim().equalsIgnoreCase("TYP"))
+							{
+								reason = "Invalid";
+							}
+							else 
+							{
+								reason = " ";
+							}
+							if(k==0)
+								reasons.append(name+"-"+reason);
+							if(j==1)
+							    reasons.append(name+"-"+reason);
+							if(j>1&&j<val.length)
+								reasons.append(","+name+"-"+reason);
+							
+		 					LogManager.push("name "+name+"\t"+"reason "+reason);
+							}
+							LogManager.push("reasons "+reasons);
+							
+							sVB.setH_validatestatus(reasons.toString());
+							LogManager.push(name.toUpperCase()+" - "+reason );
+						  return sVB;
+							  }
+						});
+				   } else if(bankid.equalsIgnoreCase("HSB")){
 				  list = this.mytemplate.query(query, new RowMapper() {
 					  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
 				      InvalidVB sVB = new InvalidVB();
@@ -5645,6 +5864,25 @@ public void updateReverseReversal(SearchFormBean sbean) throws CommonBaseExcepti
 					  }
 				});
 			   }
+		  else if(bankid.equalsIgnoreCase("KOT")){
+			  String  query="SELECT to_char(POST_DT,'DD/MM/YYYY') POST_DT,INSTRUMENT_AMOUNT,"+depno+" FROM "+tableName+" WHERE BATCHID="+transid +" AND "+chequeNo+" is null ORDER BY "+depno+" DESC";
+			  LogManager.push("Query executed:"+query);
+		    
+			  list = this.mytemplate.query(query, new RowMapper() {
+				  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+			
+			      InvalidVB sVB = new InvalidVB();
+				 
+				 
+				  sVB.setK_postdt(rset.getString("POST_DT"));
+				  sVB.setK_depositslipno(rset.getString("DEPOSIT_SLIP_NO"));
+				  sVB.setK_instrumentamount(rset.getString("INSTRUMENT_AMOUNT"));
+				 
+				
+				  return sVB;
+					  }
+				});
+			   }
 	     
 		  else if(bankid.equalsIgnoreCase("SCB")){
 			  String  query="SELECT to_char(DEPOSIT_DATE,'DD/MM/YYYY') DEPOSIT_DATE,CHQ_AMOUNT,"+depno+" FROM "+tableName+" WHERE BATCHID="+transid +" AND "+chequeNo+" is null ORDER BY "+depno+" DESC";
@@ -6869,6 +7107,19 @@ public List getBankReversals(String transid, String bankid) throws CommonBaseExc
 			  sVB.setH_depositslipno(rset.getString("DEPOSIT_SLIP_NO"));
 			  sVB.setH_instrumentno(rset.getString("INSTRUMENT_NO"));
 			  sVB.setH_instrumentamount(rset.getString("INSTRUMENT_AMOUNT"));
+			  return sVB;
+			  }
+			});
+		   }
+	  else if(bankid.equalsIgnoreCase("KOT")){
+		  query="SELECT TO_CHAR(POST_DT,'DD/MM/YYYY') POST_DT,INSTRUMENT_NO,INSTRUMENT_AMOUNT,DEPOSIT_SLIP_NO FROM "+tableName+" WHERE BATCHID="+transid +" AND RECEIPT_SL_NO=-99999 ORDER BY "+chequeNo;
+		  list = this.mytemplate.query(query, new RowMapper() {
+			  public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+		      InvalidVB sVB = new InvalidVB();
+			  sVB.setK_depositdate(rset.getString("POST_DT"));
+			  sVB.setK_depositslipno(rset.getString("DEPOSIT_SLIP_NO"));
+			  sVB.setK_instrumentno(rset.getString("INSTRUMENT_NO"));
+			  sVB.setK_instrumentamount(rset.getString("INSTRUMENT_AMOUNT"));
 			  return sVB;
 			  }
 			});

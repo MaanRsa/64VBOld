@@ -191,7 +191,476 @@ public class InvalidVB {
 	private String h_active;
 	private String h_batchid;
     private String h_dateOfEntry;
-	
+    
+    private String k_clcode1;
+    private String k_customerno;
+    private String k_clientname;
+    public String getK_clcode1() {
+		return k_clcode1;
+	}
+	public void setK_clcode1(String k_clcode1) {
+		this.k_clcode1 = k_clcode1;
+	}
+	public String getK_customerno() {
+		return k_customerno;
+	}
+	public void setK_customerno(String k_customerno) {
+		this.k_customerno = k_customerno;
+	}
+	public String getK_clientname() {
+		return k_clientname;
+	}
+	public void setK_clientname(String k_clientname) {
+		this.k_clientname = k_clientname;
+	}
+	public String getK_crdr1() {
+		return k_crdr1;
+	}
+	public void setK_crdr1(String k_crdr1) {
+		this.k_crdr1 = k_crdr1;
+	}
+	public String getK_valuedate1() {
+		return k_valuedate1;
+	}
+	public void setK_valuedate1(String k_valuedate1) {
+		this.k_valuedate1 = k_valuedate1;
+	}
+	public String getK_locationname() {
+		return k_locationname;
+	}
+	public void setK_locationname(String k_locationname) {
+		this.k_locationname = k_locationname;
+	}
+	public String getK_pickuploccode() {
+		return k_pickuploccode;
+	}
+	public void setK_pickuploccode(String k_pickuploccode) {
+		this.k_pickuploccode = k_pickuploccode;
+	}
+	public String getK_pickupdate() {
+		return k_pickupdate;
+	}
+	public void setK_pickupdate(String k_pickupdate) {
+		this.k_pickupdate = k_pickupdate;
+	}
+	public String getK_pickuploc() {
+		return k_pickuploc;
+	}
+	public void setK_pickuploc(String k_pickuploc) {
+		this.k_pickuploc = k_pickuploc;
+	}
+	public String getK_depositdate() {
+		return k_depositdate;
+	}
+	public void setK_depositdate(String k_depositdate) {
+		this.k_depositdate = k_depositdate;
+	}
+	public String getK_depositslipno() {
+		return k_depositslipno;
+	}
+	public void setK_depositslipno(String k_depositslipno) {
+		this.k_depositslipno = k_depositslipno;
+	}
+	public String getK_totalnstrument() {
+		return k_totalnstrument;
+	}
+	public void setK_totalnstrument(String k_totalnstrument) {
+		this.k_totalnstrument = k_totalnstrument;
+	}
+	public String getK_totalamount() {
+		return k_totalamount;
+	}
+	public void setK_totalamount(String k_totalamount) {
+		this.k_totalamount = k_totalamount;
+	}
+	public String getK_instrumentno() {
+		return k_instrumentno;
+	}
+	public void setK_instrumentno(String k_instrumentno) {
+		this.k_instrumentno = k_instrumentno;
+	}
+	public String getK_instrumentamt() {
+		return k_instrumentamt;
+	}
+	public void setK_instrumentamt(String k_instrumentamt) {
+		this.k_instrumentamt = k_instrumentamt;
+	}
+	public String getK_instrumentdate() {
+		return K_instrumentdate;
+	}
+	public void setK_instrumentdate(String k_instrumentdate) {
+		K_instrumentdate = k_instrumentdate;
+	}
+	public String getK_draweebank() {
+		return k_draweebank;
+	}
+	public void setK_draweebank(String k_draweebank) {
+		this.k_draweebank = k_draweebank;
+	}
+	public String getK_draweebranch() {
+		return k_draweebranch;
+	}
+	public void setK_draweebranch(String k_draweebranch) {
+		this.k_draweebranch = k_draweebranch;
+	}
+	public String getK_debitamnt1() {
+		return k_debitamnt1;
+	}
+	public void setK_debitamnt1(String k_debitamnt1) {
+		this.k_debitamnt1 = k_debitamnt1;
+	}
+	public String getK_creditamnt1() {
+		return k_creditamnt1;
+	}
+	public void setK_creditamnt1(String k_creditamnt1) {
+		this.k_creditamnt1 = k_creditamnt1;
+	}
+	public String getK_netamnt1() {
+		return k_netamnt1;
+	}
+	public void setK_netamnt1(String k_netamnt1) {
+		this.k_netamnt1 = k_netamnt1;
+	}
+	public String getK_debtoracctno1() {
+		return k_debtoracctno1;
+	}
+	public void setK_debtoracctno1(String k_debtoracctno1) {
+		this.k_debtoracctno1 = k_debtoracctno1;
+	}
+	public String getK_drawername() {
+		return k_drawername;
+	}
+	public void setK_drawername(String k_drawername) {
+		this.k_drawername = k_drawername;
+	}
+	public String getK_remarks() {
+		return k_remarks;
+	}
+	public void setK_remarks(String k_remarks) {
+		this.k_remarks = k_remarks;
+	}
+	public String getK_productcode() {
+		return k_productcode;
+	}
+	public void setK_productcode(String k_productcode) {
+		this.k_productcode = k_productcode;
+	}
+	public String getK_reason() {
+		return k_reason;
+	}
+	public void setK_reason(String k_reason) {
+		this.k_reason = k_reason;
+	}
+	public String getK_pickuppointcode() {
+		return k_pickuppointcode;
+	}
+	public void setK_pickuppointcode(String k_pickuppointcode) {
+		this.k_pickuppointcode = k_pickuppointcode;
+	}
+	public String getK_pickuppointdesp() {
+		return k_pickuppointdesp;
+	}
+	public void setK_pickuppointdesp(String k_pickuppointdesp) {
+		this.k_pickuppointdesp = k_pickuppointdesp;
+	}
+	public String getK_dealerref() {
+		return k_dealerref;
+	}
+	public void setK_dealerref(String k_dealerref) {
+		this.k_dealerref = k_dealerref;
+	}
+	public String getK_clientarrangement() {
+		return k_clientarrangement;
+	}
+	public void setK_clientarrangement(String k_clientarrangement) {
+		this.k_clientarrangement = k_clientarrangement;
+	}
+	public String getK_enrichmentvalue1() {
+		return k_enrichmentvalue1;
+	}
+	public void setK_enrichmentvalue1(String k_enrichmentvalue1) {
+		this.k_enrichmentvalue1 = k_enrichmentvalue1;
+	}
+	public String getK_enrichmentvalue2() {
+		return k_enrichmentvalue2;
+	}
+	public void setK_enrichmentvalue2(String k_enrichmentvalue2) {
+		this.k_enrichmentvalue2 = k_enrichmentvalue2;
+	}
+	public String getK_enrichmentvalue3() {
+		return k_enrichmentvalue3;
+	}
+	public void setK_enrichmentvalue3(String k_enrichmentvalue3) {
+		this.k_enrichmentvalue3 = k_enrichmentvalue3;
+	}
+	public String getK_enrichmentvalue4() {
+		return k_enrichmentvalue4;
+	}
+	public void setK_enrichmentvalue4(String k_enrichmentvalue4) {
+		this.k_enrichmentvalue4 = k_enrichmentvalue4;
+	}
+	public String getK_enrichmentvalue5() {
+		return k_enrichmentvalue5;
+	}
+	public void setK_enrichmentvalue5(String k_enrichmentvalue5) {
+		this.k_enrichmentvalue5 = k_enrichmentvalue5;
+	}
+	public String getK_enrichmentvalue6() {
+		return k_enrichmentvalue6;
+	}
+	public void setK_enrichmentvalue6(String k_enrichmentvalue6) {
+		this.k_enrichmentvalue6 = k_enrichmentvalue6;
+	}
+	public String getK_enrichmentvalue7() {
+		return k_enrichmentvalue7;
+	}
+	public void setK_enrichmentvalue7(String k_enrichmentvalue7) {
+		this.k_enrichmentvalue7 = k_enrichmentvalue7;
+	}
+	public String getK_enrichmentvalue8() {
+		return k_enrichmentvalue8;
+	}
+	public void setK_enrichmentvalue8(String k_enrichmentvalue8) {
+		this.k_enrichmentvalue8 = k_enrichmentvalue8;
+	}
+	public String getK_enrichmentvalue9() {
+		return k_enrichmentvalue9;
+	}
+	public void setK_enrichmentvalue9(String k_enrichmentvalue9) {
+		this.k_enrichmentvalue9 = k_enrichmentvalue9;
+	}
+	public String getK_enrichmentvalue10() {
+		return k_enrichmentvalue10;
+	}
+	public void setK_enrichmentvalue10(String k_enrichmentvalue10) {
+		this.k_enrichmentvalue10 = k_enrichmentvalue10;
+	}
+	public String getK_enrichmentvalue11() {
+		return k_enrichmentvalue11;
+	}
+	public void setK_enrichmentvalue11(String k_enrichmentvalue11) {
+		this.k_enrichmentvalue11 = k_enrichmentvalue11;
+	}
+	public String getK_enrichmentvalue12() {
+		return k_enrichmentvalue12;
+	}
+	public void setK_enrichmentvalue12(String k_enrichmentvalue12) {
+		this.k_enrichmentvalue12 = k_enrichmentvalue12;
+	}
+	public String getK_enrichmentvalue13() {
+		return k_enrichmentvalue13;
+	}
+	public void setK_enrichmentvalue13(String k_enrichmentvalue13) {
+		this.k_enrichmentvalue13 = k_enrichmentvalue13;
+	}
+	public String getK_enrichmentvalue14() {
+		return k_enrichmentvalue14;
+	}
+	public void setK_enrichmentvalue14(String k_enrichmentvalue14) {
+		this.k_enrichmentvalue14 = k_enrichmentvalue14;
+	}
+	public String getK_enrichmentvalue15() {
+		return k_enrichmentvalue15;
+	}
+	public void setK_enrichmentvalue15(String k_enrichmentvalue15) {
+		this.k_enrichmentvalue15 = k_enrichmentvalue15;
+	}
+	public String getK_handoffevent() {
+		return k_handoffevent;
+	}
+	public void setK_handoffevent(String k_handoffevent) {
+		this.k_handoffevent = k_handoffevent;
+	}
+	public String getK_transactionjournalnmbr() {
+		return k_transactionjournalnmbr;
+	}
+	public void setK_transactionjournalnmbr(String k_transactionjournalnmbr) {
+		this.k_transactionjournalnmbr = k_transactionjournalnmbr;
+	}
+	public String getK_depositremarks() {
+		return k_depositremarks;
+	}
+	public void setK_depositremarks(String k_depositremarks) {
+		this.k_depositremarks = k_depositremarks;
+	}
+	public String getK_entrydate() {
+		return k_entrydate;
+	}
+	public void setK_entrydate(String k_entrydate) {
+		this.k_entrydate = k_entrydate;
+	}
+	public String getK_validatestatus() {
+		return k_validatestatus;
+	}
+	public void setK_validatestatus(String k_validatestatus) {
+		this.k_validatestatus = k_validatestatus;
+	}
+	public String getK_active() {
+		return k_active;
+	}
+	public void setK_active(String k_active) {
+		this.k_active = k_active;
+	}
+	public String getK_batchid() {
+		return k_batchid;
+	}
+	public void setK_batchid(String k_batchid) {
+		this.k_batchid = k_batchid;
+	}
+	public String getK_correctchqamt() {
+		return k_correctchqamt;
+	}
+	public void setK_correctchqamt(String k_correctchqamt) {
+		this.k_correctchqamt = k_correctchqamt;
+	}
+	public String getK_returnreason() {
+		return k_returnreason;
+	}
+	public void setK_returnreason(String k_returnreason) {
+		this.k_returnreason = k_returnreason;
+	}
+	public String getK_instrumentamount() {
+		return k_instrumentamount;
+	}
+	public void setK_instrumentamount(String k_instrumentamount) {
+		this.k_instrumentamount = k_instrumentamount;
+	}
+	public String getK_noofinstruments() {
+		return k_noofinstruments;
+	}
+	public void setK_noofinstruments(String k_noofinstruments) {
+		this.k_noofinstruments = k_noofinstruments;
+	}
+	public String getK_depositamount() {
+		return k_depositamount;
+	}
+	public void setK_depositamount(String k_depositamount) {
+		this.k_depositamount = k_depositamount;
+	}
+	public String getK_pickuppoint() {
+		return k_pickuppoint;
+	}
+	public void setK_pickuppoint(String k_pickuppoint) {
+		this.k_pickuppoint = k_pickuppoint;
+	}
+	public String getK_pickuplocation() {
+		return k_pickuplocation;
+	}
+	public void setK_pickuplocation(String k_pickuplocation) {
+		this.k_pickuplocation = k_pickuplocation;
+	}
+	public String getK_debitcredit() {
+		return k_debitcredit;
+	}
+	public void setK_debitcredit(String k_debitcredit) {
+		this.k_debitcredit = k_debitcredit;
+	}
+	public String getK_txnjournalno() {
+		return k_txnjournalno;
+	}
+	public void setK_txnjournalno(String k_txnjournalno) {
+		this.k_txnjournalno = k_txnjournalno;
+	}
+	public String getK_month() {
+		return k_month;
+	}
+	public void setK_month(String k_month) {
+		this.k_month = k_month;
+	}
+	public String getK_postdt() {
+		return k_postdt;
+	}
+	public void setK_postdt(String k_postdt) {
+		this.k_postdt = k_postdt;
+	}
+	public String getK_drcr() {
+		return k_drcr;
+	}
+	public void setK_drcr(String k_drcr) {
+		this.k_drcr = k_drcr;
+	}
+	public String getK_entryid() {
+		return k_entryid;
+	}
+	public void setK_entryid(String k_entryid) {
+		this.k_entryid = k_entryid;
+	}
+	public String getK_transactionid() {
+		return k_transactionid;
+	}
+	public void setK_transactionid(String k_transactionid) {
+		this.k_transactionid = k_transactionid;
+	}
+	public String getK_status() {
+		return k_status;
+	}
+	public void setK_status(String k_status) {
+		this.k_status = k_status;
+	}
+	private String k_crdr1;
+    private String k_valuedate1;
+    private String k_locationname;
+    private String k_pickuploccode;
+    private String k_pickupdate;
+    private String k_pickuploc;
+    private String k_depositdate;
+    private String k_depositslipno;
+    private String k_totalnstrument;
+    private String k_totalamount;
+    private String k_instrumentno;
+    private String k_instrumentamt;
+    private String K_instrumentdate;
+    private String k_draweebank;
+    private String k_draweebranch;
+    private String k_debitamnt1;
+    private String k_creditamnt1;
+    private String k_netamnt1;
+    private String k_debtoracctno1;
+    private String k_drawername;
+    private String k_remarks;
+    private String k_productcode;
+    private String k_reason;
+    private String k_pickuppointcode;
+    private String k_pickuppointdesp;
+    private String k_dealerref;
+    private String k_clientarrangement;
+    private String k_enrichmentvalue1;
+    private String k_enrichmentvalue2;
+    private String k_enrichmentvalue3;
+    private String k_enrichmentvalue4;
+    private String k_enrichmentvalue5;
+    private String k_enrichmentvalue6;
+    private String k_enrichmentvalue7;
+    private String k_enrichmentvalue8;
+    private String k_enrichmentvalue9;
+    private String k_enrichmentvalue10;
+    private String k_enrichmentvalue11;
+    private String k_enrichmentvalue12;
+    private String k_enrichmentvalue13;
+    private String k_enrichmentvalue14;
+    private String k_enrichmentvalue15;
+    private String k_handoffevent;
+    private String k_transactionjournalnmbr;
+    private String k_depositremarks;
+    private String k_entrydate;
+    private String k_validatestatus;
+    private String k_active;
+    private String k_batchid;
+    private String k_correctchqamt;
+    private String k_returnreason;
+    private String k_instrumentamount;
+    private String k_noofinstruments;
+    private String k_depositamount;
+    private String k_pickuppoint;
+    private String k_pickuplocation;
+    private String k_debitcredit;
+    private String k_txnjournalno;
+    private String k_month;
+    private String k_postdt;
+    private String k_drcr;
+    private String k_entryid;
+    private String k_transactionid;
+    private String k_status;
     
 	
 	public String getH_dateOfEntry() {

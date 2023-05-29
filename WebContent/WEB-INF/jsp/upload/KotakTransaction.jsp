@@ -89,13 +89,13 @@
 		</display:column>
 		<display:column sortable="true" style="text-align:center;" title="Cheque No. Exists" property="chequeexists" class="formtxtc"/>
 		<display:column sortable="true" style="text-align:center;" title="Cheque No. Not Exists" class="formtxtc">
-		<a onclick="return nochequesHDFC('${record.transactionNo}', 'KOT');" style="cursor: pointer;">
+		<a onclick="return nochequesKOT('${record.transactionNo}', 'KOT');" style="cursor: pointer;">
 				<bean:write name="record" property="chequenotexists" />
 			</a>
 	
 		</display:column>
 		<display:column sortable="true" style="text-align:center;" title="Reversal Records"  class="formtxtc" >
-				<a onclick="return reversalsHDFC('${record.transactionNo}','KOT');" style="cursor: pointer;">
+				<a onclick="return reversalsKOT('${record.transactionNo}','KOT');" style="cursor: pointer;">
 				
 				<bean:write name="record" property="reversals" />
 			</a>
@@ -194,6 +194,30 @@ function processKOT2(val){
 		document.getElementById("uploadsts2").style.display = 'block';
 	else
 		document.getElementById("uploadsts2").style.display = 'none';
+}
+
+function duplicatesKOT(transId, bankId)
+{
+		document.transactionform.method.value = "goDuplicates";
+		document.transactionform.transactionNo.value = transId;
+    	document.transactionform.bankId.value= bankId;
+    	document.transactionform.submit();
+}
+
+function nochequesKOT(transId, bankId)
+{
+		document.transactionform.method.value = "goNoCheques";
+		document.transactionform.transactionNo.value = transId;
+    	document.transactionform.bankId.value= bankId;
+    	document.transactionform.submit();
+    	      	
+}
+function reversalsKOT(transId, bankId)
+{
+		document.transactionform.method.value = "goReversals";
+		document.transactionform.transactionNo.value = transId;
+    	document.transactionform.bankId.value= bankId;
+    	document.transactionform.submit();
 }
 
 </script>

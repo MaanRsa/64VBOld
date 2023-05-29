@@ -1256,6 +1256,10 @@ public class SearchDispatcAction extends DispatchAction {
 	             		{
 	             			bankname="HSBC BANK";
 	             		}
+	             		if(bankid.equalsIgnoreCase("KOT"))
+	             		{
+	             			bankname="KOTAK BANK";
+	             		}
 	             		request.setAttribute("bankName", bankname);
 	             		request.setAttribute("PartToShow","BankDuplicatesResult");
 		            	
@@ -1371,6 +1375,12 @@ public class SearchDispatcAction extends DispatchAction {
 	             			request.setAttribute("PartToShow","AXBBankReversalsResult");
 			            	
 	             		}
+	             		if(bankid.equalsIgnoreCase("KOT"))
+	             		{
+	             			bankname="KOTAK BANK";
+	             			request.setAttribute("PartToShow","KOTBankReversalsResult");
+			            	
+	             		}
 	             		request.setAttribute("bankName", bankname);
 	             		
 	            		}
@@ -1424,6 +1434,12 @@ public class SearchDispatcAction extends DispatchAction {
 	             		{
 	             			bankname="AXIS BANK";
 	             			request.setAttribute("PartToShow","AXBNochequesResult");
+			            	
+	             		}
+	             		if(bankid.equalsIgnoreCase("KOT"))
+	             		{
+	             			bankname="KOTAK BANK";
+	             			request.setAttribute("PartToShow","KOTNochequesResult");
 			            	
 	             		}
 	             		request.setAttribute("bankName", bankname);
