@@ -134,6 +134,9 @@ public class CashDAOImpl extends CommonBaseDAOImpl implements CashDAO {
 	    	else if(bankcode.trim().equalsIgnoreCase("HSB")){
 		    	listquery="SELECT RECEIPT_SL_NO,BANK_NO,"+receipt+",TO_CHAR("+depdate+",'DD/MM/YYYY') AS DEPOSIT_DATE,"+location+" AS LOCATION,"+chequeAmt+" ,( SELECT RECEIPT_TOTAL_AMOUNT FROM CASH_TRANSACTION C WHERE C.CASH_TRANSACTION_ID=B.CASH_TRANSACTION_ID) AS MATCHED FROM "+tableName+" B WHERE "+depdate+"=TO_DATE('"+sbean.getTransactionDate()+"','DD/MM/YYYY') AND ("+chequeNo+" IS NULL OR "+chequeNo+"='')";
 		    }
+	    	else if(bankcode.trim().equalsIgnoreCase("KOT")){
+		    	listquery="SELECT RECEIPT_SL_NO,BANK_NO,"+receipt+",TO_CHAR("+depdate+",'DD/MM/YYYY') AS DEPOSIT_DATE,"+location+" AS LOCATION,"+chequeAmt+" ,( SELECT RECEIPT_TOTAL_AMOUNT FROM CASH_TRANSACTION C WHERE C.CASH_TRANSACTION_ID=B.CASH_TRANSACTION_ID) AS MATCHED FROM "+tableName+" B WHERE "+depdate+"=TO_DATE('"+sbean.getTransactionDate()+"','DD/MM/YYYY') AND ("+chequeNo+" IS NULL OR "+chequeNo+"='')";
+		    }
 	    	else if(bankcode.trim().equalsIgnoreCase("SCB")){
 		    	listquery="SELECT RECEIPT_SL_NO,BANK_NO,"+receipt+",TO_CHAR("+depdate+",'DD/MM/YYYY') AS DEPOSIT_DATE,"+location+" AS LOCATION,"+chequeAmt+" ,( SELECT RECEIPT_TOTAL_AMOUNT FROM CASH_TRANSACTION C WHERE C.CASH_TRANSACTION_ID=B.CASH_TRANSACTION_ID) AS MATCHED FROM "+tableName+" B WHERE "+depdate+"=TO_DATE('"+sbean.getTransactionDate()+"','DD/MM/YYYY') AND ("+chequeNo+" IS NULL OR "+chequeNo+"='')";
 		    }

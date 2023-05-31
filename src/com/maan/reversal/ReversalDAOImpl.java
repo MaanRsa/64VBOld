@@ -85,6 +85,29 @@ public class ReversalDAOImpl extends CommonBaseDAOImpl implements ReversalDAO {
 		return list; 
 	}
 	
+	public List getKotakSearchList(ReversalFormBean sbean) throws CommonBaseException {
+		List list=null;		
+		arg = new Object[2]; 
+		try{
+			arg[0] = sbean.getFromDate();
+			arg[1] = sbean.getToDate();
+			selectQry=getQuery(DBConstants.REVERSAL_KOTAK_COUNT);
+			list = this.mytemplate.query(selectQry, arg, new RowMapper() {
+			public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+			KotakReversalVB sVB = new KotakReversalVB();
+			sVB.setDepositDate(rset.getString(1));
+			sVB.setNoOfReversal(rset.getString(2));
+			return sVB;
+			}});
+		}
+		catch(Exception e)
+		{
+			LogManager.push("Exception In SearchDAOImpl - searchResult searchdao(): "+e);
+		}
+		LogManager.push("QUERY executed "+selectQry);			
+		return list; 
+	}
+	
 	public List getHsbcSearchList(ReversalFormBean sbean) throws CommonBaseException {
 		List list=null;
 		arg = new Object[2]; 
@@ -226,6 +249,30 @@ public class ReversalDAOImpl extends CommonBaseDAOImpl implements ReversalDAO {
 		catch(Exception e)
 		{
 			LogManager.push("Exception In reVERSALDAOImpl - getHdfcReversalsList searchdao(): "+e);
+		}
+		LogManager.push("QUERY executed "+selectQry);		
+		return list; 
+	}
+	
+	public List getKotakReversalsList(ReversalFormBean sbean) throws CommonBaseException {
+		List list=null;
+		arg = new Object[1];
+		try{
+			selectQry="select to_char(POST_DT,'dd/mm/yyyy') POST_DT,DEPOSIT_SLIP_NO,INSTRUMENT_NO,INSTRUMENT_AMOUNT from kotak_bank where receipt_sl_no=-99999 and POST_DT=to_date(?,'dd/mm/yyyy') order by DEPOSIT_SLIP_NO";
+			arg[0] = sbean.getDepositdate();
+			list = this.mytemplate.query(selectQry,arg,  new RowMapper() {
+			public Object mapRow(final ResultSet rset,final int arg) throws SQLException {
+			KotakReversalVB sVB = new KotakReversalVB();
+			sVB.setDepositDate(rset.getString("POST_DT"));
+			sVB.setDepSlipNo(rset.getString("DEPOSIT_SLIP_NO"));
+			sVB.setChequeNo(rset.getString("INSTRUMENT_NO"));
+			sVB.setChequeAmt(rset.getString("INSTRUMENT_AMOUNT"));			
+			return sVB;
+			}});
+		}
+		catch(Exception e)
+		{
+			LogManager.push("Exception In reVERSALDAOImpl - getKotakReversalsList searchdao(): "+e);
 		}
 		LogManager.push("QUERY executed "+selectQry);		
 		return list; 

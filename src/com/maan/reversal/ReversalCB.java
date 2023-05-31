@@ -143,5 +143,23 @@ public class ReversalCB {
 		LogManager.push("getAxisReversalsList-Exit");
 		return result;
 	}
+
+	public List getKotakSearchList(ReversalFormBean sbean) throws CommonBaseException {
+		List result;
+        LogManager.push("getKotakSearchList-Enter");
+		ReversalDAO sdao=(ReversalDAOImpl)CommonDaoFactory.getDAO(ReversalDAO.class.getName());
+		result=sdao.getKotakSearchList(sbean);
+		LogManager.push("getKotakSearchList-Exit");
+		return result;
+	}
+
+	public List getKotakReversalsList(ReversalFormBean sbean) throws CommonBaseException {
+		List result;
+        LogManager.push("getKotakReversalsList-Enter");
+		ReversalDAO sdao=(ReversalDAOImpl)CommonDaoFactory.getDAO(ReversalDAO.class.getName());
+		result=sdao.getKotakReversalsList(sbean);
+		LogManager.push("getKotakReversalsList-Exit");
+		return result;
+	}
 	
 }

@@ -42,6 +42,8 @@ public class ReversalDispatchAction extends DispatchAction {
 			request.setAttribute("PartToShow","AxisReversalSearch");
 		else if(typeid.equalsIgnoreCase("108"))
 			request.setAttribute("PartToShow","HsbcReversalSearch");
+		else if(typeid.equalsIgnoreCase("115"))
+			request.setAttribute("PartToShow","KotakReversalSearch");
 
 		final ReversalCB sCB = new ReversalCB();
 		//ReversalFormBean sForm=new ReversalFormBean();
@@ -248,6 +250,53 @@ public class ReversalDispatchAction extends DispatchAction {
 			return mapping.findForward(forward);
 	}
 	
+	
+	public ActionForward kotakSearch(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+			ReversalFormBean sbean = (ReversalFormBean)form;
+			ActionErrors errors = new ActionErrors();
+			ReversalCB scb=new ReversalCB();
+			forward="reversaldetail";
+			
+			List list = new ArrayList();
+			//List banklist = new ArrayList();
+			//List receiptlist = new ArrayList();
+			//errors = validateForm(sbean);
+			
+	        validateResult=scb.validateSearchInfo(sbean,validateResult);
+			
+	          if("".equalsIgnoreCase(validateResult))
+	            {
+	            	try{
+	            		list=scb.getKotakSearchList(sbean);
+	            	//	banklist=scb.getBankSearchList(sbean);
+	            	//	receiptlist=scb.getReceiptSearchList(sbean);
+	            		LogManager.push("Bank LIST retrieved size:"+list);
+	            		//LogManager.push("Receipt LIST retrieved size:"+list);
+	            	}catch(Exception e){LogManager.push("Exception In SearchDispatcAction - searchInit(): "+e);}
+	            	request.setAttribute("PartToShow","KotakSearchResult");
+	            	request.setAttribute("PartToShow1","");
+	            	LogManager.push(request.getRequestURI());
+	            }
+	            else
+	            {
+	            	errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("search.error.display", new Object[] {validateResult}));
+	            	request.setAttribute("PartToShow","KotakReversalSearch");
+	            	sbean.setPartToShow("Search");
+	            }
+	            saveMessages(request,errors);
+	            saveErrors(request,errors);
+	            //sbean.setFromJsp("");
+			
+			validateResult="";
+			//sbean.setSearchResult(lists);
+			
+			request.setAttribute("searchResult", list);
+			//request.setAttribute("receiptSearchResult", receiptlist);
+			
+			return mapping.findForward(forward);
+	}
+	
 	public ActionForward hsbcSearch(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 			ReversalFormBean sbean = (ReversalFormBean)form;
@@ -312,6 +361,39 @@ public class ReversalDispatchAction extends DispatchAction {
 	            	}catch(Exception e){LogManager.push("Exception In SearchDispatcAction - searchInit(): "+e);}
 	            	
 	            	request.setAttribute("PartToShow","HdfcReversals");
+	            	LogManager.push(request.getRequestURI());
+	            saveMessages(request,errors);
+	            saveErrors(request,errors);
+	            //sbean.setFromJsp("");
+			
+			validateResult="";
+			//sbean.setSearchResult(lists);
+			
+			request.setAttribute("searchResult", list);
+			//request.setAttribute("receiptSearchResult", receiptlist);
+			
+			return mapping.findForward(forward);
+	}
+	
+	public ActionForward kotakReversals(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+			ReversalFormBean sbean = (ReversalFormBean)form;
+			ActionErrors errors = new ActionErrors();
+			 ReversalCB scb=new ReversalCB();
+			forward="reversaldetail";
+			LogManager.push("receipt Search Enter");
+			List list = new ArrayList();
+			 
+	        	  LogManager.push("success");
+	            	try{
+	            		list=scb.getKotakReversalsList(sbean);
+	            	//	banklist=scb.getBankSearchList(sbean);
+	            	//	receiptlist=scb.getReceiptSearchList(sbean);
+	            		LogManager.push("Bank LIST retrieved size:"+list);
+	            		//LogManager.push("Receipt LIST retrieved size:"+list);
+	            	}catch(Exception e){LogManager.push("Exception In SearchDispatcAction - searchInit(): "+e);}
+	            	
+	            	request.setAttribute("PartToShow","KotakReversals");
 	            	LogManager.push(request.getRequestURI());
 	            saveMessages(request,errors);
 	            saveErrors(request,errors);

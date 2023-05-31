@@ -53,6 +53,14 @@ function searchHdfc(){
     document.reversalFormBean.submit();
     return false;
 }
+
+function searchKOT(){
+    document.reversalFormBean.method.value="kotakSearch";
+    document.reversalFormBean.action='<%=request.getContextPath() %>/reversal.do';
+    document.reversalFormBean.submit();
+    return false;
+}
+
 function searchHsbc(){
     document.reversalFormBean.method.value="hsbcSearch";
 	document.reversalFormBean.action='<%=request.getContextPath() %>/reversal.do';
@@ -100,6 +108,12 @@ function callHdfcReversals(val1){
        	document.reversalFormBean.depositdate.value = val1;
         document.reversalFormBean.submit();	
    }
+   
+function callKotakReversals(val1){
+	document.reversalFormBean.method.value = "kotakReversals";
+   	document.reversalFormBean.depositdate.value = val1;
+    document.reversalFormBean.submit();	
+}
 
 </script>
   </head>
@@ -569,6 +583,85 @@ function callHdfcReversals(val1){
 			</table>
 			<br />
 		</logic:equal>
+		
+		
+		<logic:equal name="PartToShow" value="KotakReversalSearch">
+
+			<table align="center" border="0" align="center" width="45%"
+				cellpadding="1" cellspacing="1">
+
+				<tr style="height:2px">
+					<td>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width="100%" class="tbn" height="10" align="left">
+						Search KOTAK Reversals
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width="100%" height="10" align="left"></td>
+				</tr>
+
+				
+				<tr>
+					<td>
+						<bean:message key="reversal.fromdate" />
+					</td>
+					<td align="left">
+						&nbsp;
+						<input type="text" name="fromDate" id="fromDate"
+							readonly="true" />
+						<a href="javascript:fromDate.popup();"
+							onClick="document.getElementById('fromDate').focus()"><img
+								src="<%=request.getContextPath()%>/images/cal.gif" width="16"
+								height="16" border="0" alt="Click Here Pick up the date">
+						</a> &nbsp;
+						<script>
+							var fromDate = new calendar1(document.forms[0].elements["fromDate"]);
+							fromDate.year_scroll = true;
+							fromDate.time_comp = false;
+						</script>
+					</td>
+
+				</tr>
+			    <tr>
+					<td>
+						<bean:message key="reversal.todate" />
+					</td>
+					<td align="left">
+						&nbsp;
+						<input type="text" name="toDate" id="toDate"
+							readonly="true" />
+						<a href="javascript:toDate.popup();"
+							onClick="document.getElementById('toDate').focus()"><img
+								src="<%=request.getContextPath()%>/images/cal.gif" width="16"
+								height="16" border="0" alt="Click Here Pick up the date">
+						</a> &nbsp;
+						<script>
+							var toDate = new calendar1(document.forms[0].elements["toDate"]);
+							toDate.year_scroll = true;
+							toDate.time_comp = false;
+						</script>
+					</td>
+
+				</tr>
+
+
+				<tr>
+					<td colspan="2" align="center">
+						<br />
+						<input type="button" class="tbut" value="Submit" onclick="searchKOT();" />
+
+					</td>
+
+				</tr>
+
+			</table>
+			<br />
+		</logic:equal>
+		
 <logic:equal name="PartToShow" value="ReceiptSearchResult">
  <table cellpadding="5" cellspacing="0" border="0" width="100%">   
  <tr><br /><td colspan="2" width="100%" class="tbn" height="20" align="left">RECEIPT REVERSAL DETAILS</td></tr> 
@@ -792,6 +885,42 @@ function callHdfcReversals(val1){
     </table>
 <br />
 </logic:equal>
+
+<logic:equal name="PartToShow" value="KotakSearchResult">
+ <table cellpadding="5" cellspacing="0" border="0" width="100%">   
+ <tr><br /><td colspan="2" width="100%" class="tbn" height="20" align="left">KOTAK BANK REVERSAL DETAILS</td></tr> 
+</table>  
+ <br />
+<table border="0" cellpadding="0" cellspacing="0" width="70%" align="center">
+  <tr>
+     <td align="center" colspan="2">
+		<display:table name="searchResult" pagesize="15" requestURI="/reversal.do?method=hdfcSearch" class="table" uid="row" id="record" export="false">
+		<display:setProperty name="paging.banner.one_item_found" value="" />
+		<display:setProperty name="paging.banner.one_items_found" value="" />
+		<display:setProperty name="paging.banner.all_items_found" value="" />
+		<display:setProperty name="paging.banner.some_items_found" value="" />
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:setProperty name="paging.banner.onepage" value="" />
+	 	<display:column style="text-align:center;width:130px" sortable="true" title="Deposit Date" property="depositDate"   media="html" />
+	 	<display:column style="text-align:center;width:130px" sortable="true" title="No. Of Reversals"   media="html" >
+	 	<bean:define id="depositDate" property="depositDate" name="record"/>
+	 	<a onclick="return callKotakReversals('<%=depositDate %>')" style="cursor: pointer;">
+			 	<bean:write property="noOfReversal" name="record"/> 
+	 	</a>
+	 	</display:column>
+		</display:table>
+	</td>   
+    </tr>
+    <tr style="height:10px">
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+	<td align="center"><input type="button" class="tbut" value="Back" style="width:65px" onclick="return goBack()" /></td>
+   </tr>
+    </table>
+<br />
+</logic:equal>
+
 <logic:equal name="PartToShow" value="HsbcSearchResult">
  <table cellpadding="5" cellspacing="0" border="0" width="100%">   
  <tr><br /><td colspan="2" width="100%" class="tbn" height="20" align="left">HSBC BANK REVERSAL DETAILS</td></tr> 
@@ -920,6 +1049,38 @@ function callHdfcReversals(val1){
 <logic:equal name="PartToShow" value="HdfcReversals">
  <table cellpadding="5" cellspacing="0" border="0" width="100%">   
  <tr><br /><td colspan="2" width="100%" class="tbn" height="20" align="left">HDFC BANK REVERSALS</td></tr> 
+</table>  
+ <br />
+<table border="0" cellpadding="0" cellspacing="0" width="90%" align="center">
+  <tr>
+     <td align="center" colspan="2">
+		<display:table name="searchResult" pagesize="15" requestURI="/reversal.do?method=hdfcReversals" class="table" uid="row" id="record" export="false">
+		<display:setProperty name="paging.banner.one_item_found" value="" />
+		<display:setProperty name="paging.banner.one_items_found" value="" />
+		<display:setProperty name="paging.banner.all_items_found" value="" />
+		<display:setProperty name="paging.banner.some_items_found" value="" />
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:setProperty name="paging.banner.onepage" value="" />
+	    <display:column style="text-align:center;width:130px" sortable="true" title="Deposit Slip No" property="depSlipNo"   media="html" />
+	 	<display:column style="text-align:center;width:130px" sortable="true" title="Deposit Date" property="depositDate"   media="html" />
+	 	<display:column style="text-align:center;width:130px" sortable="true" title="Cheque No" property="chequeNo"   media="html" />
+	 	<display:column style="text-align:center;width:130px" sortable="true" title="Cheque Amount" property="chequeAmt"   media="html" />
+        </display:table>
+	</td>
+    </tr>
+    <tr style="height:10px">
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+	<td align="center"><input type="button" class="tbut" value="Back" style="width:65px" onclick="return goBack()" /></td>
+   </tr>
+    </table>
+<br />
+</logic:equal>
+
+<logic:equal name="PartToShow" value="KotakReversals">
+ <table cellpadding="5" cellspacing="0" border="0" width="100%">   
+ <tr><br /><td colspan="2" width="100%" class="tbn" height="20" align="left">KOTAK BANK REVERSALS</td></tr> 
 </table>  
  <br />
 <table border="0" cellpadding="0" cellspacing="0" width="90%" align="center">

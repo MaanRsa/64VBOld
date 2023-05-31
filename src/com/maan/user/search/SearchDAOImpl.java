@@ -254,7 +254,15 @@ public class SearchDAOImpl extends CommonBaseDAOImpl implements SearchDAO {
 									+ arg1[1]
 									+ arg1[2]
 									+ " AND R.BANK_CODE IN (SELECT BANK_ACCOUNT_CODE FROM BANK_ACCOUNT_CODE WHERE BANK_ID='"
-									+ bankIds[4] + "' AND STATUS='Y')"+
+									+ bankIds[4] + "' AND STATUS='Y')"
+						+"UNION ALL SELECT (SELECT BANK_NAME FROM BANK_MASTER WHERE BANK_ID='"
+						+bankIds[5]
+									+"')AS BANK,R.CHEQUE_NO,R.AMOUNT,TO_CHAR(RECEIPT_DATE,'DD/MM/YYYY') RECEIPT_DATE,R.CHEQUE_STATUS,RECEIPT_NO,R.BANK_NO||'- '||R.RECEIPT_SL_NO||' -','RECEIPT',BANK_NO,TRANS_SOURCE,R.MANUAL_UPDATE FROM RECEIPT_MASTER R WHERE ( (cheque_status is null) or (status is not null or cheque_status is not null) ) "
+									+arg1[0]
+									+arg1[1]
+									+arg1[2]
+									+ " AND R.BANK_CODE IN (SELECT BANK_ACCOUNT_CODE FROM BANK_ACCOUNT_CODE WHERE BANK_ID='"
+									+ bankIds[5] + "' AND STATUS='Y')"+
 					"ORDER BY 1,4 DESC,2";
 					
 					query3=query2;

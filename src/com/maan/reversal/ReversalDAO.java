@@ -17,4 +17,6 @@ public interface ReversalDAO {
 	public List getScbReversalsList(ReversalFormBean sbean) throws CommonBaseException;
 	public List getAxisSearchList(ReversalFormBean sbean)throws CommonBaseException;
 	public List getAxisReversalsList(ReversalFormBean sbean) throws CommonBaseException;
+	public List getKotakSearchList(ReversalFormBean sbean) throws CommonBaseException;
+	public List getKotakReversalsList(ReversalFormBean sbean) throws CommonBaseException;
 }

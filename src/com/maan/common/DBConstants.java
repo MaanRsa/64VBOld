@@ -326,6 +326,8 @@ public interface DBConstants {
 	
 	public static final String REVERSAL_HDFCBANK_COUNT ="maan.db.reversal.hdfcbank.count";
 	
+	public static final String REVERSAL_KOTAK_COUNT ="maan.db.reversal.kotakbank.count";
+	
 	public static final String REVERSAL_HSBCBANK_COUNT ="maan.db.reversal.hsbcbank.count";
 	
 	public static final String REVERSAL_AXISBANK_COUNT ="maan.db.reversal.axisbank.count";
